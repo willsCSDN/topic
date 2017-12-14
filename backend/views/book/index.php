@@ -43,6 +43,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             [
                 'class' => 'yii\grid\CheckboxColumn',
+                'headerOptions' => [
+                    'class' => 'text-center'
+                ],
             ],
 //            ['class' => 'yii\grid\SerialColumn'],
 

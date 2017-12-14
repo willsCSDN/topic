@@ -74,6 +74,41 @@ class BookController extends Controller
         echo "删除成功";die;
     }
 
+    //    批量上架
+    public function actionShelveUp(){
+        $req = Yii::$app->request->post();
+        if(empty($req['ids'])){
+            echo "您什么都没有选中";die;
+        }
+        $ids = $req['ids'];
+//        Book::updateAll(['is_shelve' => 3], ['in', 'id', $ids]);
+        echo "删除成功";die;
+    }
+
+    //    批量下架
+    public function actionShelveDown(){
+        $req = Yii::$app->request->post();
+        if(empty($req['ids'])){
+            echo "您什么都没有选中";die;
+        }
+        $ids = $req['ids'];
+//        Book::updateAll(['is_shelve' => 3], ['in', 'id', $ids]);
+        echo "删除成功";die;
+    }
+
+    //    分销书籍批量删除
+    public function actionShelveDelete(){
+        $req = Yii::$app->request->post();
+        if(empty($req['ids'])){
+            echo "您什么都没有选中";die;
+        }
+        $ids = $req['ids'];
+//        Book::updateAll(['is_shelve' => 3], ['in', 'id', $ids]);
+        echo "删除成功";die;
+    }
+
+
+
 
     /**
      * Displays a single Book model.
