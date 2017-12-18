@@ -130,8 +130,29 @@ class BookController extends Controller
     public function actionCreate()
     {
         $model = new Book();
-//        $req = Yii::$app->request->post();
-//        print_r($req);die;
+        $req = Yii::$app->request->post();
+        if ($req) {
+            //print_r($req);die;
+            $model->name = $req['Book']['name'];
+            $model->cover = $req['Book']['cover'];
+            $model->desc = $req['Book']['desc'];
+            $model->author = $req['Book']['author'];
+            $model->type = $req['type'];
+            $model->category = $req['Book']['category'];
+            $model->sale_model = $req['Book']['sale_model'];
+            $model->status = $req['Book']['status'];
+            $model->chapter_num = $req['Book']['chapter_num'];
+            $model->chapter_name = $req['Book']['chapter_name'];
+            $model->words_num = $req['Book']['words_num'];
+            $model->price = $req['Book']['price'];
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+        }
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {

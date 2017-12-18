@@ -208,14 +208,14 @@ $this->params['breadcrumbs'][] = $this->title;
                         ]);
                     },
                     'update' => function ($url, $model) {
-                        return Html::a('<i class="fa fa-unlock-alt">书籍编辑</i>', $url, [
+                        return Html::a('<i class="fa fa-pencil-square-o">书籍编辑</i>', $url, [
                             'title' => Yii::t('app', 'update'),
                             'class' => 'del btn btn-success btn-xs',
                         ]);
                     },
 
                     'update-chapter' => function ($url, $model) {
-                        return Html::a('<i class="fa fa-unlock-alt">章节编辑</i>', $url, [
+                        return Html::a('<i class="fa fa-pencil-square-o">章节编辑</i>', $url, [
                             'title' => Yii::t('app', 'update-chapter'),
                             'class' => 'del btn btn-info btn-xs',
                         ]);

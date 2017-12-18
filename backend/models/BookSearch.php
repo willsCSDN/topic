@@ -18,7 +18,7 @@ class BookSearch extends Book
     public function rules()
     {
         return [
-            [['id', 'status', 'is_shelve', 'chapter_num', 'sale_model', 'subcribe_num', 'click_num', 'collection_num', 'is_agent', 'type'], 'integer'],
+            [['id', 'status', 'is_shelve', 'chapter_num', 'sale_model', 'subcribe_num', 'click_num', 'collection_num', 'is_agent', 'type', 'category'], 'integer'],
             [['name', 'cover', 'desc', 'author', 'chapter_name', 'created', 'updated'], 'safe'],
             [['words_num', 'price'], 'number'],
         ];

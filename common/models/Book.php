@@ -14,6 +14,7 @@ use Yii;
  * @property string $author
  * @property string $type
  * @property integer $status
+ * @property integer $category
  * @property integer $is_shelve
  * @property string $chapter_num
  * @property string $chapter_name
@@ -44,7 +45,7 @@ class Book extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'author'], 'required'],
-            [['status', 'is_shelve', 'chapter_num', 'sale_model', 'subcribe_num', 'click_num', 'collection_num', 'is_agent', 'type'], 'integer'],
+            [['status', 'is_shelve', 'chapter_num', 'sale_model', 'subcribe_num', 'click_num', 'collection_num', 'is_agent', 'type', 'category'], 'integer'],
             [['words_num', 'price'], 'number'],
             [['created', 'updated'], 'safe'],
             [['name', 'author', 'chapter_name'], 'string', 'max' => 20],
@@ -64,6 +65,7 @@ class Book extends \yii\db\ActiveRecord
             'desc' => Yii::t('app', '简介'),
             'author' => Yii::t('app', '作者'),
             'type' => Yii::t('app', '类别（1：男频2：女频）'),
+            'category' => Yii::t('app', '分类'),
             'status' => Yii::t('app', '1：完结2：连载'),
             'is_shelve' => Yii::t('app', '1：上架2：下架3:删除'),
             'chapter_num' => Yii::t('app', '章节总数'),
@@ -86,8 +88,8 @@ class Book extends \yii\db\ActiveRecord
      */
     public static function items(){
         $res_data = array();
-        $modles = self::find()->orderBy('id asc')->all();
-        foreach ($modles as $model) {
+        $models = self::find()->orderBy('id asc')->all();
+        foreach ($models as $model) {
             $res_data[$model->id] = $model->name;
         }
         return $res_data;

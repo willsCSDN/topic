@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use common\models\Category;
 /* @var $this yii\web\View */
 /* @var $model common\models\Book */
 
@@ -42,11 +42,14 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="row">
                 <div class="col-sm-8">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">目标读者：</label>
-                        <div class="col-sm-9">
+                        <label class="col-sm-12 control-label">目标读者：</label>
+
+                        <div class="col-sm-6">
                             <label class="radio-inline">
                                 <input type="radio" checked="" value="2" id="optionsRadios1" name="type">女生</label>
                             <p>以女性视角或女性受众为主的作品，古言/现言/玄幻/青春/悬疑/科幻/仙侠/游戏/N次元等所有女生题材</p>
+                        </div>
+                        <div class="col-sm-6">
                             <label class="radio-inline">
                                 <input type="radio" value="1" id="optionsRadios2" name="type">男生</label>
                             <p>以男性视角或男性受众为主的作品，玄幻/奇幻/历史/都市/灵异/仙侠/游戏/二次元/武侠/军事等所有男生题材</p>
@@ -66,21 +69,31 @@ $this->params['breadcrumbs'][] = $this->title;
         <h1>完善作品信息</h1>
         <fieldset>
             <div class="row">
-                <div class="col-sm-8">
                     <div class="form-group">
+
+                        <?= $form->field($model,'name')->textInput(['class'=>'form-control required',])?>
+
+                        <?= $form->field($model,'author')->textInput(['class'=>'form-control required',])?>
+
+                        <?= $form->field($model,'category')->dropDownList(Category::items())?>
+
+                        <?= $form->field($model,'cover')->textInput(['class'=>'form-control required',])?>
+
+                        <?= $form->field($model,'desc')->textarea(['class'=>'form-control required',])?>
+
+                        <?= $form->field($model,'sale_model')->label('销售模式')->dropDownList(['1' => '按章收费', '2' => '整本收费'])?>
+
+                        <?= $form->field($model,'status')->label('书籍状态')->dropDownList(['1' => '完结', '2' => '连载'])?>
+
                         <?= $form->field($model,'chapter_num')->textInput(['class'=>'form-control required',])?>
-                    </div>
-                    <div class="form-group">
+
                         <?= $form->field($model,'chapter_name')->textInput(['class'=>'form-control required',])?>
+
+                        <?= $form->field($model,'words_num')->textInput(['class'=>'form-control required',])?>
+
+                        <?= $form->field($model,'price')->textInput(['class'=>'form-control required',])?>
                     </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="text-center">
-                        <div style="margin-top: 20px">
-                            <i class="fa fa-sign-in" style="font-size: 180px;color: #e5e5e5 "></i>
-                        </div>
-                    </div>
-                </div>
+
             </div>
 
         </fieldset>
