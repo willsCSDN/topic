@@ -215,7 +215,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'title' => Yii::t('app', 'delete'),
                             'class' => 'del btn btn-default btn-xs',
                             'data' => [
-                                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                                'confirm' => Yii::t('app', '您确定要删除此书籍？'),
                                 'method' => 'post',
                             ],
                         ]);

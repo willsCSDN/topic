@@ -15,6 +15,7 @@ use backend\models\AuthAssignment;
  * @property string $email
  * @property integer $role
  * @property integer $status
+ * @property integer $department
  * @property integer $created_at
  * @property integer $updated_at
  */
@@ -35,7 +36,7 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             [['username','email'], 'required'],
-            //[['role', 'status', 'created_at', 'updated_at'], 'integer'],
+            //[['role', 'status', 'created_at', 'updated_at','department_id], 'integer'],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
         ];
@@ -57,6 +58,7 @@ class User extends \yii\db\ActiveRecord
             'status' => 'Status',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
+            'department_id' => '部门ID',
         ];
     }
     //获取所有用户
