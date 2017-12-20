@@ -56,6 +56,16 @@ class Department extends \yii\db\ActiveRecord
         return self::find()->indexBy('id')->asArray()->all();
     }
 
+    public static function getDepart()
+    {
+        $model = self::find()->asArray()->all();
+        $res_arr = array();
+        foreach ($model as $key => $value) {
+            $res_arr[$value['id']] = $value['name'];
+        }
+        return $res_arr;
+    }
+
     //获取所有顶级分类
     public static function getTop() {
         $items  = [

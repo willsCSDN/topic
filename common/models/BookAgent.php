@@ -50,7 +50,9 @@ class BookAgent extends \yii\db\ActiveRecord
 
     public static function getCreated($book_id){
         $model = self::findOne(['book_id' => $book_id]);
-        return $model->created;
+        if ($model)
+            return $model->created;
+        return false;
     }
 
     public function beforeSave($insert)
