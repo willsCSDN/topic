@@ -71,27 +71,126 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="row">
                     <div class="form-group">
 
-                        <?= $form->field($model,'name')->textInput(['class'=>'form-control required',])?>
+                        <div class="col-sm-12">
+                            <div class="col-md-1">
+                            </div>
+                            <div class="col-sm-1" style="padding: 9px 9px">
+                                <p style="font-weight:bold;">书籍名称</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <?= $form->field($model,'name')->label(false)->textInput(['class'=>'form-control required',])?>
+                            </div>
+                        </div>
 
-                        <?= $form->field($model,'author')->textInput(['class'=>'form-control required',])?>
+                        <div class="col-sm-12">
+                            <div class="col-md-1">
+                            </div>
+                            <div class="col-sm-1" style="padding: 9px 9px">
+                                <p style="font-weight:bold;">书籍作者</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <?= $form->field($model,'author')->label(false)->textInput(['class'=>'form-control required',])?>
+                            </div>
+                        </div>
 
-                        <?= $form->field($model,'category')->dropDownList(Category::items())?>
+                        <div class="col-sm-12">
+                            <div class="col-md-1">
+                            </div>
+                            <div class="col-sm-1" style="padding: 9px 9px">
+                                <p style="font-weight:bold;">书籍分类</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <?= $form->field($model,'category')->label(false)->dropDownList(Category::items())?>
+                            </div>
+                        </div>
 
-                        <?= $form->field($model,'cover')->textInput(['class'=>'form-control required',])?>
+                        <div class="col-sm-12">
+                            <div class="col-md-1">
+                            </div>
+                            <div class="col-sm-1" style="padding: 9px 9px">
+                                <p style="font-weight:bold;">书籍封面</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <?= $form->field($model,'cover')->label(false)->textInput(['class'=>'form-control required',])?>
+                            </div>
+                        </div>
 
-                        <?= $form->field($model,'desc')->textarea(['class'=>'form-control required',])?>
+                        <div class="col-sm-12">
+                            <div class="col-md-1">
+                            </div>
+                            <div class="col-sm-1" style="padding: 9px 9px">
+                                <p style="font-weight:bold;">书籍简介</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <?= $form->field($model,'desc')->label(false)->textarea(['class'=>'form-control required',])?>
+                            </div>
+                        </div>
 
-                        <?= $form->field($model,'sale_model')->label('销售模式')->dropDownList(['1' => '按章收费', '2' => '整本收费'])?>
+                        <div class="col-sm-12">
+                            <div class="col-md-1">
+                            </div>
+                            <div class="col-sm-1" style="padding: 9px 9px">
+                                <p style="font-weight:bold;">销售模式</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <?= $form->field($model,'sale_model')->label(false)->dropDownList(['1' => '按章收费', '2' => '整本收费'])?>
+                            </div>
+                        </div>
 
-                        <?= $form->field($model,'status')->label('书籍状态')->dropDownList(['1' => '完结', '2' => '连载'])?>
+                        <div class="col-sm-12">
+                            <div class="col-md-1">
+                            </div>
+                            <div class="col-sm-1" style="padding: 9px 9px">
+                                <p style="font-weight:bold;">书籍状态</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <?= $form->field($model,'status')->label(false)->dropDownList(['1' => '完结', '2' => '连载'])?>
+                            </div>
+                        </div>
 
-                        <?= $form->field($model,'chapter_num')->textInput(['class'=>'form-control required',])?>
+                        <div class="col-sm-12">
+                            <div class="col-md-1">
+                            </div>
+                            <div class="col-sm-1" style="padding: 9px 9px">
+                                <p style="font-weight:bold;">章节总数</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <?= $form->field($model,'chapter_num')->label(false)->textInput(['class'=>'form-control required',])?>
+                            </div>
+                        </div>
 
-                        <?= $form->field($model,'chapter_name')->textInput(['class'=>'form-control required',])?>
+                        <div class="col-sm-12">
+                            <div class="col-md-1">
+                            </div>
+                            <div class="col-sm-1" style="padding: 9px 9px">
+                                <p style="font-weight:bold;">最新章节总数</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <?= $form->field($model,'chapter_name')->label(false)->textInput(['class'=>'form-control required',])?>
+                            </div>
+                        </div>
 
-                        <?= $form->field($model,'words_num')->textInput(['class'=>'form-control required',])?>
+                        <div class="col-sm-12">
+                            <div class="col-md-1">
+                            </div>
+                            <div class="col-sm-1" style="padding: 9px 9px">
+                                <p style="font-weight:bold;">目前文字总数</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <?= $form->field($model,'words_num')->label(false)->textInput(['class'=>'form-control required',])?>
+                            </div>
+                        </div>
 
-                        <?= $form->field($model,'price')->textInput(['class'=>'form-control required',])?>
+                        <div class="col-sm-12">
+                            <div class="col-md-1">
+                            </div>
+                            <div class="col-sm-1" style="padding: 9px 9px">
+                                <p style="font-weight:bold;">书籍价格</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <?= $form->field($model,'price')->label(false)->textInput(['class'=>'form-control required',])?>
+                            </div>
+                        </div>
                     </div>
 
             </div>

@@ -87,13 +87,17 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => '书籍名称',
                 'attribute' => 'name',
+//                'format'=>'raw',
                 'contentOptions' => [
                     'style' => 'word-break: break-all; white-space: normal:',
                     'width' => '10%'
                 ],
                 'headerOptions' => [
                     'class' => 'text-center'
-                ]
+                ],
+//                'value' => function ($model) {
+//                    return Html::a($model->name,'http://www.baidu.com',['title' => '审核']);
+//                }
             ],
 
             [
@@ -189,7 +193,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     'class' => 'text-center'
                 ],
                 'options' => ['width' => '100px;'],
-                'template' => '{update} {update-chapter} {delete}',
+//                'template' => '{update} {update-chapter} {delete}',
+                'template' => '<div class="col-sm-12"><a href="#"  class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-option-horizontal"></i></a><ul class="dropdown-menu  pull-right"><li>{update}</li><li>{update-chapter}</li><li>{delete}</li></ul></div>',
+
                 'buttons' => [
                     'view' => function ($url, $model) {
                         return Html::a('<i class="fa fa-edit">查看</i>', $url, [
@@ -270,3 +276,4 @@ JS;
 
 $this->registerJs($js);
 ?>
+<?=Html::jsFile('@web/js/bootstrap.min.js'); ?>
