@@ -82,6 +82,10 @@ class Book extends \yii\db\ActiveRecord
         ];
     }
 
+    public function getBookAgent() {
+        return $this->hasOne(BookAgent::className(), ['book_id' => 'id']);
+    }
+
     /**
      * 获取列表
      * .

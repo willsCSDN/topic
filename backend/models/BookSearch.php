@@ -92,10 +92,8 @@ class BookSearch extends Book
      */
     public function searchAgent($params)
     {
-        $query = BookAgent::find()
-            ->select(['book_agent.status', 'book.*'])
-            ->joinWith(['book'],false)
-            ->asArray();
+        $query = Book::find();
+        $query->joinWith(['bookAgent']);
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
@@ -114,26 +112,26 @@ class BookSearch extends Book
         $query->andFilterWhere([
 //            'id' => $this->id,
             'book_agent.status' => $this->status,
-            'book.chapter_num' => $this->chapter_num,
-            'book.words_num' => $this->words_num,
-            'book.price' => $this->price,
-            'book.sale_model' => $this->sale_model,
-            'book.subcribe_num' => $this->subcribe_num,
-            'book.click_num' => $this->click_num,
-            'book.collection_num' => $this->collection_num,
-            'book.is_agent' => $this->is_agent,
-            'book.category' => $this->category,
+            'chapter_num' => $this->chapter_num,
+            'words_num' => $this->words_num,
+            'price' => $this->price,
+            'sale_model' => $this->sale_model,
+            'subcribe_num' => $this->subcribe_num,
+            'click_num' => $this->click_num,
+            'collection_num' => $this->collection_num,
+            'is_agent' => $this->is_agent,
+            'category' => $this->category,
             'book_agent.created' => $this->created,
             'book_agent.updated' => $this->updated,
         ]);
 
-        $query->andFilterWhere(['like', 'book.name', $this->name])
-            ->orFilterWhere(['like', 'book.author', $this->name])
-            ->orFilterWhere(['like', 'book.id', $this->name])
-            ->andFilterWhere(['like', 'book.cover', $this->cover])
-            ->andFilterWhere(['like', 'book.desc', $this->desc])
-            ->andFilterWhere(['like', 'book.chapter_name', $this->chapter_name])
-            ->andFilterWhere(['<>', 'book.is_shelve', 3])
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->orFilterWhere(['like', 'author', $this->name])
+            ->orFilterWhere(['like', 'id', $this->name])
+            ->andFilterWhere(['like', 'cover', $this->cover])
+            ->andFilterWhere(['like', 'desc', $this->desc])
+            ->andFilterWhere(['like', 'chapter_name', $this->chapter_name])
+            ->andFilterWhere(['<>', 'is_shelve', 3])
             ->andFilterWhere(['<>', 'book_agent.status', 3]);
 
         return $dataProvider;

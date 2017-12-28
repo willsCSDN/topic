@@ -30,8 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                     <div>
                         <p>
-                            <?= Html::a('批量加入分销库', 'javascript:void(0);', ['class' => 'btn btn-info btn-sm btn-grid']) ?>
-                            <?= Html::a('批量删除', 'javascript:void(0);', ['class' => 'btn btn-default btn-sm btn-grid-cancel']) ?>
+                            <?= Html::a('批量加入分销库', 'javascript:void(0);', ['class' => 'btn btn-info btn-sm btn-grid fa fa-tasks']) ?>
+                            <?= Html::a('批量删除', 'javascript:void(0);', ['class' => 'btn btn-default btn-sm btn-grid-cancel fa fa-trash-o']) ?>
                         </p>
                     </div>
 

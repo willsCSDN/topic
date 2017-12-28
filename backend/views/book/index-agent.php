@@ -72,7 +72,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ]
                 ],
                 'value' => function ($model) {
-                    return $model['cover'];
+                    return $model->cover;
                 }
             ],
 
@@ -123,9 +123,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     'class' => 'text-center'
                 ],
                 'value' => function ($model) {
-                    if ($model['status'] == 1)
+                    if ($model->status == 1)
                         return '完结';
-                    if ($model['status'] == 2)
+                    if ($model->status == 2)
                         return '连载';
                     return false;
                 }
@@ -154,9 +154,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     'class' => 'text-center'
                 ],
                 'value' => function ($model) {
-                    if($model['sale_model'] == 1)
+                    if($model->sale_model == 1)
                         return '按章购买';
-                    if($model['sale_model'] == 2)
+                    if($model->sale_model == 2)
                         return '整本购买';
                     return false;
                 }
@@ -173,7 +173,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'class' => 'text-center'
                 ],
                 'value' => function ($model) {
-                    return BookAgent::getCreated($model['id']);
+                    return $model->bookAgent['created'];
                 }
             ],
 
