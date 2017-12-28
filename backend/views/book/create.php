@@ -100,7 +100,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <p style="font-weight:bold;">书籍分类</p>
                             </div>
                             <div class="col-sm-6">
-                                <?= $form->field($model,'category')->label(false)->dropDownList(Category::items())?>
+                                <?= $form->field($model,'category')->label(false)->dropDownList(Category::items(1))?>
                             </div>
                         </div>
 
