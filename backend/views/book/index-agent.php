@@ -20,18 +20,22 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
                     <div class="col-md-12">
-                        <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+                        <?php  echo $this->render('_searchagent', ['model' => $searchModel]); ?>
 
 <!--                        <div class="col-md-1" style="padding-top: 18px">-->
 <!--                            <?//= Html::a(Yii::t('app', '新增书籍'), ['create'], ['class' => 'btn btn-success btn-sm']) ?>-->
 <!--                        </div>-->
                     </div>
+                    <div class="col-md-12">
+                        <hr />
+                    </div>
+
 
                     <div>
                         <p>
-                            <?= Html::a('上架', 'javascript:void(0);', ['class' => 'btn btn-info btn-sm btn-grid-up']) ?>
-                            <?= Html::a('下架', 'javascript:void(0);', ['class' => 'btn btn-default btn-sm btn-grid-down']) ?>
-                            <?= Html::a('删除', 'javascript:void(0);', ['class' => 'btn btn-default btn-sm btn-grid-delete']) ?>
+                            <?= Html::a('上架', 'javascript:void(0);', ['class' => 'btn btn-info btn-sm btn-grid-up fa fa-arrow-circle-o-up']) ?>
+                            <?= Html::a('下架', 'javascript:void(0);', ['class' => 'btn btn-default btn-sm btn-grid-down fa fa-arrow-circle-o-down']) ?>
+                            <?= Html::a('删除', 'javascript:void(0);', ['class' => 'btn btn-default btn-sm btn-grid-delete fa fa-trash-o']) ?>
                         </p>
                     </div>
 
@@ -68,7 +72,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ]
                 ],
                 'value' => function ($model) {
-                    return $model->cover;
+                    return $model['cover'];
                 }
             ],
 
@@ -119,9 +123,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     'class' => 'text-center'
                 ],
                 'value' => function ($model) {
-                    if ($model->status == 1)
+                    if ($model['status'] == 1)
                         return '完结';
-                    if ($model->status == 2)
+                    if ($model['status'] == 2)
                         return '连载';
                     return false;
                 }
@@ -150,9 +154,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     'class' => 'text-center'
                 ],
                 'value' => function ($model) {
-                    if($model->sale_model == 1)
+                    if($model['sale_model'] == 1)
                         return '按章购买';
-                    if($model->sale_model == 2)
+                    if($model['sale_model'] == 2)
                         return '整本购买';
                     return false;
                 }
@@ -169,7 +173,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'class' => 'text-center'
                 ],
                 'value' => function ($model) {
-                    return BookAgent::getCreated($model->id);
+                    return BookAgent::getCreated($model['id']);
                 }
             ],
 
@@ -266,7 +270,7 @@ $js = <<<JS
             }
         );
     });
-   $(document).on('click','.btn-grid-dowm', function (){
+    $(document).on('click','.btn-grid-down', function (){
         //注意这里的$("#grid")，要跟我们第一步设定的options id一致
         var keys = $("#grid").yiiGridView("getSelectedRows");
         console.log(keys);
@@ -275,7 +279,9 @@ $js = <<<JS
                 alert(data);
                 location.reload();
             }
-    );
+        );
+    });
+
     $(document).on('click','.btn-grid-delete', function (){
         //注意这里的$("#grid")，要跟我们第一步设定的options id一致
         var keys = $("#grid").yiiGridView("getSelectedRows");
@@ -285,9 +291,10 @@ $js = <<<JS
                 alert(data);
                 location.reload();
             }
-    );
-});
+        );
+    });
 JS;
 
 $this->registerJs($js);
 ?>
+<?=Html::jsFile('@web/js/bootstrap.min.js'); ?>

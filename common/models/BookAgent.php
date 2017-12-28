@@ -48,6 +48,10 @@ class BookAgent extends \yii\db\ActiveRecord
         ];
     }
 
+    public function getBook() {
+        return $this->hasOne(Book::className(),['id' => 'book_id']);
+    }
+
     public static function getCreated($book_id){
         $model = self::findOne(['book_id' => $book_id]);
         if ($model)

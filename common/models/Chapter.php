@@ -64,6 +64,33 @@ class Chapter extends \yii\db\ActiveRecord
         ];
     }
 
+
+    /**
+     * 获取列表
+     * .
+     */
+    public static function items(){
+        $res_data = array();
+        $models = self::find()->orderBy('id asc')->all();
+        foreach ($models as $model) {
+            $res_data[$model->id] = $model->name;
+        }
+        return $res_data;
+    }
+
+    /**
+     * 获取指定值
+     * .
+     */
+    public static function item($id){
+        if ($id){
+            $name = self::find()->where(['id' =>$id]) ->asArray() ->one();
+            return $name['name'];
+        }
+        return false;
+    }
+
+
     public function beforeSave($insert)
     {
         if ($insert) {

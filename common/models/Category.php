@@ -53,14 +53,15 @@ class Category extends \yii\db\ActiveRecord
      * 获取列表
      * .
      */
-    public static function items(){
+    public static function items($type){
         $res_data = array();
-        $models = self::find()->orderBy('id asc')->all();
+        $models = self::find()->where(['type' => $type])->orderBy('id asc')->all();
         foreach ($models as $model) {
             $res_data[$model->id] = $model->name;
         }
         return $res_data;
     }
+
     /**
      * 获取指定值
      * .
