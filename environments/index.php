@@ -36,6 +36,8 @@ return [
             'backend/web/assets',
             'frontend/runtime',
             'frontend/web/assets',
+			'api/runtime',//add api 
+			'api/web/assets',//add api 
         ],
         'setExecutable' => [
             'yii',
@@ -44,6 +46,7 @@ return [
         'setCookieValidationKey' => [
             'backend/config/main-local.php',
             'frontend/config/main-local.php',
+			'api/config/main-local.php',//add api 
         ],
     ],
     'Production' => [
@@ -53,6 +56,8 @@ return [
             'backend/web/assets',
             'frontend/runtime',
             'frontend/web/assets',
+			'api/runtime',//add api 
+			'api/web/assets',//add api 
         ],
         'setExecutable' => [
             'yii',
@@ -60,6 +65,7 @@ return [
         'setCookieValidationKey' => [
             'backend/config/main-local.php',
             'frontend/config/main-local.php',
+			'api/config/main-local.php',//add api 
         ],
     ],
 ];
