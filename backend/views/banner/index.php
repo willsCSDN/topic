@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use common\models\Lookup;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\BannerSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -46,8 +47,22 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
 //            'param',
             'remark',
-            'seat_id',
-            'show_type',
+//            'seat_id',
+            [
+                'label' => '展示位置',
+                'value' => function ($model) {
+                    return Lookup::item('banner-seat', $model->seat_id);
+                },
+                'filter' => Html::activeDropDownList($searchModel, 'seat_id', ['' => '全部']+Lookup::items('banner-seat'))
+            ],
+//            'show_type',
+            [
+                'label' => '展现方式',
+                'value' => function ($model) {
+                    return Lookup::item('banner-show-type', $model->seat_id);
+                },
+                'filter' => Html::activeDropDownList($searchModel, 'show_type', ['' => '全部']+Lookup::items('banner-show-type'))
+            ],
             'sort',
             'create_time',
             // 'status',

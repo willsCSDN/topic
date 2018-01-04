@@ -24,43 +24,13 @@ class BookController extends Controller
      */
     public function actionIndex()
     {
-//        $buy_money=0;
-//        $buy_number=0;
-//        $invest_money=0;
-//        $invest_number=0;
-//        $model = ArtOrder::find()
-//            ->select(['uid','shop_id',
-//                "SUM(case when type=2 then price end) as buy_money",
-//                "count(case when type=2 then price end) as buy_number",
-//                "SUM(case when type!=2 then price_total end) as invest_money",
-//                "count(case when type!=2 then price_total end) as invest_number",
-//            ])
-//            ->groupBy(['uid','shop_id'])
-//            ->asArray()
-//            ->all();
-//        var_dump($fir);die;
-//        $sec = ArtOrder::find()
-//            ->select(['uid','shop_id',"SUM(price_total) as invest_money","count(*) as invest_number"])
-//            ->where(['<>','type',2])
-//            ->groupBy(['uid','shop_id'])
-//            ->asArray()
-//            ->all();
-//        foreach($sec as $key => $value){
-//
-//        }
-
-//        echo date('Y-m-d H-i-s',$_SERVER['REQUEST_TIME'])."<br>";
-//        $a = date('Y-m-d H-i-s');
-//        $b = date('Y-m-d H-i-s');
-//        echo $a."<br>".$b."<br>";
-//        echo date('Y-m-d H-i-s',$_SERVER['REQUEST_TIME'])."<br>";
-//        die;
         $searchModel = new BookSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+//        $dataProvider->item = 1;
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+//            'item' => '1',
         ]);
     }
 

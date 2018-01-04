@@ -22,6 +22,7 @@ class ComposerStaticInite4343f3ad7d2ea8db509f2e66bb8db83
             'yii\\codeception\\' => 16,
             'yii\\bootstrap\\' => 14,
             'yii\\' => 4,
+            'yidashi\\webuploader\\' => 20,
         ),
         'm' => 
         array (
@@ -69,6 +70,10 @@ class ComposerStaticInite4343f3ad7d2ea8db509f2e66bb8db83
         'yii\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2',
+        ),
+        'yidashi\\webuploader\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yidashi/yii2-webuploader',
         ),
         'mdm\\admin\\' => 
         array (

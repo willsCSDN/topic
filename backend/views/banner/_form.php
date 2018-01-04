@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'img_url')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'img_url')->widget('yidashi\webuploader\Webuploader',['server'=>'/base/pic-api/upload?pic_type=local','options'=>['btnname'=>'上传头像','boxId' => 'picker', 'previewWidth'=>550, 'previewHeight'=>200]])->label('上传图片') ?>
 
     <?= $form->field($model, 'param')->textInput(['maxlength' => true]) ?>
 
