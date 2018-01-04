@@ -59,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => '展现方式',
                 'value' => function ($model) {
-                    return Lookup::item('banner-show-type', $model->seat_id);
+                    return Lookup::item('banner-show-type', $model->show_type);
                 },
                 'filter' => Html::activeDropDownList($searchModel, 'show_type', ['' => '全部']+Lookup::items('banner-show-type'))
             ],
